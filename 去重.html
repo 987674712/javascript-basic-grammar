@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script class="a1">
+    function delRepeat(arr) {
+        var newArray = [arr[0]];
+        var len = arr.length;
+        for (var i = 1; i < len; i++) {
+            var tr = 0;
+            for (var k = 0; k < newArray.length; k++) {
+                if (arr[i] == newArray[k]) {
+                    tr = 1
+                }
+            }
+            if (tr == 0) {
+                newArray.push(arr[i]);
+            }
+        }
+        return newArray;
+    }
+    var delRepeat1 = function (arr) {
+        arr.sort();
+        var newArray = [arr[0]];
+        for (var i = 1; i < arr.length; i++) {
+            if (arr[i] != newArray[newArray.length - 1]) {
+                newArray.push(arr[i])
+            }
+        }
+        return newArray
+    };
+    var arr = [0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3];
+    console.log(delRepeat(arr));// 1 1 2 3 3
+    var arr1 = [0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, "red", "red", "green", "green"];
+    console.log(delRepeat1(arr1));// 1 2 3
+</script>
+</body>
+</html>

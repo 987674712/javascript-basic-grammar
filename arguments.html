@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //    arguments无需明确指出参数名，就能直接访问
+    function doAdd() {
+        if (arguments.length == 1) {
+            alert(arguments[0] + 5);
+        } else if (arguments.length == 2) {
+            alert(arguments[0] + arguments[1]);
+        }
+    }
+
+    doAdd(10);	// 15
+    doAdd(40, 20);	// 60
+    var add = function (a, b) {
+        var aLength = arguments.length;
+        if (aLength > 1) {
+//            return a+b
+            var number = 0;
+            for (var i = 0; i < aLength; i++) {
+                number += arguments[i]
+            }
+            return number
+        } else {
+            return function (b) {
+                return a + b
+            }
+        }
+    };
+    document.write(add(9, 9) + '<br/>'); // 18
+    document.write(add(8)(10)); // 18
+</script>
+</body>
+</html>
